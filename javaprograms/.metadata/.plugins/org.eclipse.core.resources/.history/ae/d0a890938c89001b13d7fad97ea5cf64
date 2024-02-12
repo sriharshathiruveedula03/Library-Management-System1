@@ -1,0 +1,167 @@
+package Double;
+import java.util.*;
+class Node
+{
+  Scanner s=new Scanner(System.in);
+  int n;
+  Node start=null,next,ptr,pre;
+  public void create()
+  {
+	  int x;
+    Node newnode=new Node();
+    Scanner s=new Scanner(System.in);
+    System.out.println("Enter the value");
+     x=s.nextInt();
+    newnode.n=x;
+    
+    if(start==null)
+    {
+      start=newnode;
+      newnode.next=null;
+    }
+    else
+    {
+      ptr=start;
+      while(ptr.next!=null)
+      {
+        ptr=ptr.next;
+      }
+      ptr.next=newnode;
+      newnode.next=null;
+    }
+  }
+  public void insert_beg()
+  {
+    Node newnode=new Node();
+    Scanner s=new Scanner(System.in);
+    //System.out.println("Enter the value");
+    int x=s.nextInt();
+    newnode.n=x;
+    
+    newnode.next=start;
+    start=newnode;
+  }
+  public void insert_end()
+  {
+    Node newnode=new Node();
+    Scanner s=new Scanner(System.in);
+    //System.out.println("Enter the value");
+    int x=s.nextInt();
+    newnode.n=x;
+ 
+    ptr=start;
+    while(ptr.next!=null)
+    {
+      ptr=ptr.next;
+    }
+    ptr.next=newnode;
+    newnode.next=null;
+  }
+  public void display()
+  {
+    ptr=start;
+    while(ptr!=null)
+    {
+      System.out.println(ptr.n);
+      ptr=ptr.next;
+    }
+  }
+  public void insert_At_givenpostion()
+  {
+    Node newnode=new Node();
+    System.out.println("enter value ");
+    Scanner k=new Scanner(System.in);
+    newnode.n=k.nextInt();
+    
+    int pos,count=0;
+    System.out.println("enter position ");
+    pos=k.nextInt();
+    ptr=start;
+    while(count!=pos-1)
+    {
+     pre=ptr;
+     ptr=ptr.next;
+     count++;  
+    }
+    pre.next=newnode;
+    newnode.next=ptr;
+   }
+  public void delete_beg()
+  {
+    ptr=start;
+    start=start.next;
+    ptr.next=null;
+    ptr=null;
+  }
+  public void delete_end()
+  {
+    ptr=start;
+    
+    while(ptr.next!=null)
+    {
+      pre=ptr;
+      ptr=ptr.next;
+    }
+    pre.next=null;
+    ptr=null;
+  }
+  public void delete_At_position()
+  {
+    int count=0;
+    
+    ptr=start;
+    while(count!=n)
+    {
+      pre=ptr;
+      ptr=ptr.next;
+      count++;
+    }
+    pre.next=ptr.next;
+    ptr=null;
+   }
+}
+public class link2
+{
+  public static void main(String[] args)
+  {
+	  Node z=new Node();
+	  Scanner s=new Scanner(System.in);
+	  int ch;
+      	while(true)
+      	{
+      		System.out.println("1.Create a node");
+      		System.out.println("2. Add element at first");
+      		System.out.println("3.Add element at last");
+      		System.out.println("4.insert_At_givenpostion");
+      		System.out.println("5.delete at begining");
+      		System.out.println("6.delete at end");
+      		System.out.println("7.delete at given position");
+      		System.out.println("8.diplay");
+      
+      		ch=s.nextInt();
+      
+      		switch(ch)
+      		{
+      		case 1:z.create(); 
+      		break;
+      		case 2:z.insert_beg();
+      		break;
+      		case 3:z.insert_end();
+      		break;
+      		case 4:z.insert_At_givenpostion();
+      		break;
+      		case 5:z.delete_beg();
+      		break;
+      		case 6:z.delete_end();
+      		break;
+      		case 7:z.delete_At_position();
+      		break;
+      		case 8:z.display();
+      		break;
+      		default :System.exit(0);
+      		break; 
+      		}
+      	}
+   }
+}
+

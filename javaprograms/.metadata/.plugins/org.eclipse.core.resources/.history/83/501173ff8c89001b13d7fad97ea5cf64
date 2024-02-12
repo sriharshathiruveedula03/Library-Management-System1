@@ -1,0 +1,85 @@
+package Double;
+import java.util.Scanner;
+class nodeB 
+{
+  nodeB ptr, preptr, start=null, next;
+  int data;
+  public void createnewnode() 
+  {
+    nodeB newnode=new nodeB();
+    Scanner s=new Scanner(System.in);
+    System.out.print("Enter Data: ");
+    newnode.data=s.nextInt();
+    if(start==null)
+    {
+      start=newnode;
+      newnode.next=null;
+    }
+    else 
+    {
+      ptr=start;
+      while(ptr.next!=null) 
+      {
+        ptr=ptr.next;
+      }
+      newnode.next=null;
+      ptr.next=newnode;
+    }
+  }
+  public void display() 
+  {
+    ptr=start;
+    System.out.print("Linked List: ");
+    while(ptr!=null) 
+    {
+      System.out.print(ptr.data);
+      ptr=ptr.next;
+    }
+    System.out.println();
+  }
+  public void createAtBeg()
+  {
+    nodeB newnode=new nodeB();
+    Scanner s=new Scanner(System.in);
+    System.out.print("Enter Data: ");
+    newnode.data=s.nextInt();
+    
+    ptr=start;
+    start=newnode;
+    newnode.next=start;
+   
+  }
+}
+public class SLL_CreationBegging
+{
+  public static void main(String[] args)
+  {
+    nodeB obj=new nodeB();
+    Scanner s=new Scanner(System.in);
+    while (true) 
+    {
+      System.out.println("1. Create a new node(Position given Linearly)");
+      System.out.println("2. Create a new node at Begging");
+      System.out.println("3. Display all nodes");
+      System.out.println("4. Exit this loop");
+      System.out.print("Enter Your Choise: ");
+      int choise=s.nextInt();
+      switch(choise)
+      {
+        case 1: obj.createnewnode();
+            obj.display();
+            break;
+        case 2: obj.createAtBeg();
+            obj.display();
+            break;
+        case 3: obj.display();
+            break;
+        case 4: System.exit(0);
+        default: System.out.println("Invalid Choice.");
+      }
+      System.out.println();
+    }
+    
+  }
+  
+}

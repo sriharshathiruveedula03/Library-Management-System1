@@ -1,0 +1,23 @@
+package Co_01;
+class wat
+{
+	public wat()
+	{
+		this(7754);	
+	}
+	public wat(int p)
+	{
+		System.out.println(p);
+	}
+	
+}
+public class ConstructorOverLoading 
+{
+	public static void main(String[] args) 
+	{
+		wat k=new wat();
+	
+	}
+
+
+}

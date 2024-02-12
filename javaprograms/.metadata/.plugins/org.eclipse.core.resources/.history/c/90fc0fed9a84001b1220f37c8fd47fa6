@@ -1,0 +1,71 @@
+package questions;
+import java.util.Scanner;
+class node
+{
+  node ptr,start=null,next;
+  int n;
+  public void create()
+  {
+      node newnode=new node();
+      newnode.n=555;
+      if (start==null)
+      {
+        start=newnode;
+        newnode.next=null;
+      }
+  }
+  
+  public void end()
+  {
+    node newnode=new node();
+      newnode.n=60;
+      ptr=start;
+      while (ptr.next!=null)
+      {
+        ptr=ptr.next;
+        
+      }
+      ptr.next=newnode;
+      newnode.next=null;
+  }
+  public void display()
+  {
+    ptr=start;
+    while (ptr!=null)
+    {
+      System.out.println(ptr.n);
+      ptr=ptr.next;
+    }
+  }
+}
+public class DS
+{
+  public static void main(String[] args)
+  {
+	  	 Scanner l=new Scanner(System.in);
+         node kk=new node();
+         int ch;
+         while (true)
+         {
+           System.out.println("Enter 1 to create a new node");
+           System.out.println("Enter 2 to create a new node at end");
+           System.out.println("Enter 3 to display");
+           ch=l.nextInt();
+           switch (ch)
+           {
+           case 1: kk.create();
+                   break;
+           case 2:kk.end();
+                  break;
+           case 3:kk.display();
+                  break;
+           case 4: System.exit(0);
+                  break;
+           }
+         
+           
+         }
+         
+  }
+
+}
